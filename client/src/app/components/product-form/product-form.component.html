@@ -1,0 +1,36 @@
+<div class="product-dialog-container">
+  <div class="product-dialog-title">
+    {{ isEdit ? 'Termék szerkesztése' : 'Új termék hozzáadása' }}
+  </div>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill" class="product-field">
+    <mat-label>Név</mat-label>
+    <input matInput formControlName="name" required>
+    <mat-error *ngIf="productForm.controls['name'].invalid">A név megadása kötelező</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="product-field">
+    <mat-label>Ár (Ft)</mat-label>
+    <input matInput type="number" formControlName="price" required>
+    <mat-error *ngIf="productForm.controls['price'].invalid">Az ár nem lehet negatív</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="product-field">
+    <mat-label>Készlet</mat-label>
+    <input matInput type="number" formControlName="stock" required>
+    <mat-error *ngIf="productForm.controls['stock'].invalid">A készlet nem lehet negatív</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="product-field">
+      <mat-label>Leírás</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+
+    <div class="product-dialog-actions">
+      <button mat-flat-button color="primary" type="submit" [disabled]="productForm.invalid">
+        {{ isEdit ? 'Mentés' : 'Létrehozás' }}
+      </button>
+      <button mat-stroked-button color="primary" type="button" (click)="closeDialog()">Mégse</button>
+    </div>
+  </form>
+</div>

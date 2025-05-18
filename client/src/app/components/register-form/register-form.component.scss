@@ -1,0 +1,19 @@
+@use '../login-form/login-form.component.scss' as login;
+
+.login-dialog-container {
+  @extend .login-dialog-container;
+}
+.login-title {
+  @extend .login-title;
+}
+.login-field {
+  @extend .login-field;
+}
+.login-failed-message {
+  @extend .login-failed-message;
+}
+.login-submit-button,
+.login-cancel-button {
+  @extend .login-submit-button;
+  @extend .login-cancel-button;
+}

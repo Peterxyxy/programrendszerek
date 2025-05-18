@@ -1,0 +1,55 @@
+<div class="admin-actions" *ngIf="authService.getRole() === 'admin'">
+  <button mat-flat-button color="primary" (click)="addProduct()">
+    <mat-icon>add</mat-icon> Új termék hozzáadása
+  </button>
+</div>
+<div class="products-container">
+  <ng-container *ngIf="products.length > 0; else noProducts">
+    <mat-card *ngFor="let product of products" class="product-card">
+      <mat-card-header>
+        <mat-card-title>{{ product.name }}</mat-card-title>
+        <mat-card-subtitle>ID: {{ product._id }}</mat-card-subtitle>
+        <span style="margin-left:auto; display: flex; gap: 0.5rem;">
+          <button
+            *ngIf="authService.getRole() === 'admin'"
+            mat-icon-button
+            color="primary"
+            (click)="editProduct(product)"
+            aria-label="Termék szerkesztése"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button
+            *ngIf="authService.getRole() === 'admin'"
+            mat-icon-button
+            color="warn"
+            (click)="deleteProduct(product)"
+            aria-label="Termék törlése"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </span>
+      </mat-card-header>
+        <mat-card-content>
+        <div *ngIf="product.description">{{ product.description }}</div>
+        <mat-divider></mat-divider>
+        <div>Ár: <span class="product-price">{{ product.price | currency:'HUF':'symbol' }}</span></div>
+        <mat-divider></mat-divider>
+        <div>Készlet: {{ product.stock }}</div>
+        <div *ngIf="product.stock < 1" class="no-stock-message">
+            Nincs készleten!
+        </div>
+        </mat-card-content>
+      <mat-card-actions>
+        <button mat-stroked-button color="primary" (click)="orderOnClick(product)" [disabled]="product.stock < 1">
+          Kosárba
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </ng-container>
+  <ng-template #noProducts>
+    <div class="no-products-message">
+      Jelenleg nincs elérhető termék az áruházban.
+    </div>
+  </ng-template>
+</div>

@@ -1,0 +1,25 @@
+.not-found-error-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  padding-top: 3rem; // Adds space above the content
+}
+
+.not-found-error-icon {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  color: #1976d2;
+}
+
+.not-found-error-text {
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+  color: #333;
+}
+
+.back-to-home-button {
+  margin-top: 0.5rem;
+}

@@ -1,0 +1,84 @@
+<div class="profile-container" *ngIf="user">
+  <h2>Felhasználói profil</h2>
+<form [formGroup]="profileForm" (ngSubmit)="saveProfile()">
+  <mat-form-field appearance="fill">
+    <mat-label>Jelszó</mat-label>
+    <input matInput type="password" formControlName="password" autocomplete="new-password">
+    <mat-error *ngIf="profileForm.controls['password'].invalid">{{ getPasswordError() }}</mat-error>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Jelszó újra</mat-label>
+    <input matInput type="password" formControlName="passwordAgain" autocomplete="new-password">
+    <mat-error *ngIf="profileForm.controls['passwordAgain'].invalid || profileForm.hasError('passwordsMismatch')">
+      {{ getPasswordAgainError() }}
+    </mat-error>
+  </mat-form-field>
+  <div *ngIf="passwordFailed" class="login-failed-message">
+    {{ errorMessage || 'Sikertelen mentés!' }}
+  </div>
+  <button mat-flat-button color="primary" type="submit" [disabled]="profileForm.invalid">Mentés</button>
+</form>
+
+<h3>Címek</h3>
+<div *ngFor="let address of addresslist; let i = index" class="address-block">
+  <form [formGroup]="addressForms[i]" (ngSubmit)="saveAddress(i)">
+    <div style="font-size: 0.9em; color: #888; margin-bottom: 0.5em;">
+      <strong>Cím azonosító:</strong> {{ address._id }}
+    </div>
+    <mat-form-field appearance="fill">
+      <mat-label>Utca</mat-label>
+      <input matInput formControlName="street">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Város</mat-label>
+      <input matInput formControlName="city">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Megye</mat-label>
+      <input matInput formControlName="county">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Irányítószám</mat-label>
+      <input matInput formControlName="postalCode">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Ország</mat-label>
+      <input matInput formControlName="country">
+    </mat-form-field>
+<button
+  mat-stroked-button
+  color="primary"
+  type="submit"
+  *ngIf="addressForms[i].dirty"
+  [disabled]="addressForms[i].invalid"
+>
+  Mentés
+</button>
+  </form>
+</div>
+
+  <h4>Új cím hozzáadása</h4>
+  <form [formGroup]="newAddressForm" (ngSubmit)="addAddress()">
+    <mat-form-field appearance="fill">
+      <mat-label>Utca</mat-label>
+      <input matInput formControlName="street">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Város</mat-label>
+      <input matInput formControlName="city">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Megye</mat-label>
+      <input matInput formControlName="county">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Irányítószám</mat-label>
+      <input matInput formControlName="postalCode">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Ország</mat-label>
+      <input matInput formControlName="country">
+    </mat-form-field>
+    <button mat-flat-button color="accent" type="submit" [disabled]="newAddressForm.invalid">Hozzáadás</button>
+  </form>
+</div>

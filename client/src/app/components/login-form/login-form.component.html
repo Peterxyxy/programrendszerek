@@ -1,0 +1,32 @@
+<div class="login-dialog-container">
+  <div class="login-title">Bejelentkezés</div>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill" class="login-field">
+      <mat-label>Felhasználónév</mat-label>
+      <input matInput formControlName="username" required autocomplete="username">
+      <mat-error *ngIf="loginForm.controls.username.invalid">{{ getErrorMessage() }}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" class="login-field">
+      <mat-label>Jelszó</mat-label>
+      <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" required autocomplete="current-password">
+      <button mat-icon-button matSuffix type="button" (click)="hidePassword = !hidePassword" [attr.aria-label]="'Jelszó mutatása/elrejtése'">
+        <mat-icon>{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+      </button>
+      <mat-error *ngIf="loginForm.controls.password.invalid && loginForm.controls.password.touched">
+        A jelszó megadása kötelező
+      </mat-error>
+    </mat-form-field>
+
+    <div *ngIf="loginFailed" class="login-failed-message">
+      Sikertelen bejelentkezés!
+    </div>
+
+    <button mat-flat-button color="primary" class="login-submit-button" type="submit">
+      Bejelentkezés
+    </button>
+    <button mat-stroked-button color="primary" class="login-cancel-button" type="button" (click)="closeDialog()">
+      Mégse
+    </button>
+  </form>
+</div>

@@ -1,0 +1,32 @@
+<div class="app-root-container">
+
+  <mat-toolbar class="custom-header" color="primary">
+    <div class="header-left">
+      <button (click)="redirectToPageWithComponentReload('app/product')" class="brand-btn" mat-flat-button>
+        <span class="brand-title">MobilÁruház</span>
+      </button>
+    </div>
+    <div class="header-right" style="margin-left:auto; display:flex; align-items:center;">
+      <ng-container *ngIf="authService.isLoggedIn()">
+        <button mat-icon-button (click)="redirectToPageWithComponentReload('app/basket')" aria-label="Kosár">
+          <mat-icon>shopping_cart</mat-icon>
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="userMenu">
+          <mat-icon>account_circle</mat-icon>
+        </button>
+        <mat-menu #userMenu="matMenu">
+          <button mat-menu-item (click)="redirectToPageWithComponentReload('user/profile')">
+            <mat-icon>person</mat-icon> Profilom
+          </button>
+          <button mat-menu-item (click)="Logout()">
+            <mat-icon>logout</mat-icon> Kijelentkezés
+          </button>
+        </mat-menu>
+      </ng-container>
+    </div>
+  </mat-toolbar>
+
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>

@@ -1,0 +1,55 @@
+.custom-header {
+  background: linear-gradient(90deg, #1976d2 0%, #42a5f5 100%);
+  color: #fff;
+  min-height: 64px;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+  border-bottom: 3px solid #1565c0;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+}
+
+.brand-btn {
+  background: transparent !important;
+  box-shadow: none !important;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  border: none;
+}
+
+.brand-logo {
+  height: 40px;
+  margin-right: 12px;
+}
+
+.brand-title {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: #e3f2fd;
+}
+
+.header-right button[mat-stroked-button] {
+  border-color: #fff;
+  color: #fff;
+  margin-left: 12px;
+}
+
+.header-right mat-icon {
+  color: #e3f2fd;
+}
+
+mat-menu {
+  font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+  .brand-title {
+    font-size: 1.2rem;
+  }
+  .brand-logo {
+    height: 28px;
+  }
+  .custom-header {
+    min-height: 48px;
+  }
+}

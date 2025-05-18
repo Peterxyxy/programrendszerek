@@ -1,0 +1,45 @@
+<div class="basket-container" *ngIf="products.length > 0; else emptyBasket">
+  <h2>Kosár</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Termék</th>
+        <th>Mennyiség</th>
+        <th>Ár</th>
+        <th>Összesen</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of products">
+        <td>{{ getProductName(item.productId) }}</td>
+        <td>{{ item.quantity }}</td>
+        <td>{{ getProductPrice(item.productId) | currency:'HUF' }}</td>
+        <td>{{ getProductPrice(item.productId) * item.quantity | currency:'HUF' }}</td>
+        <td>
+          <button mat-button color="warn" (click)="removeProduct(item.productId)">Törlés</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="basket-total">
+    <strong>Végösszeg: {{ getTotal() | currency:'HUF' }}</strong>
+  </div>
+
+  <div class="shipping-address-select" *ngIf="addresses.length > 0">
+    <mat-form-field appearance="fill">
+      <mat-label>Szállítási cím</mat-label>
+      <mat-select [(ngModel)]="selectedAddressId" (selectionChange)="onAddressChange()">
+        <mat-option *ngFor="let addr of addresses" [value]="addr._id">
+          {{ addr.street }}, {{ addr.city }}, {{ addr.postalCode }}, {{ addr.country }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <button mat-stroked-button color="warn" (click)="clearBasket()">Kosár ürítése</button>
+  <button mat-flat-button color="primary" (click)="orderBasket()" style="margin-left: 1rem;" [disabled]="!selectedAddressId">Megrendelés</button>
+</div>
+<ng-template #emptyBasket>
+  <div class="basket-empty">A kosár üres.</div>
+</ng-template>
