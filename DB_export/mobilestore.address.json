@@ -1,0 +1,22 @@
+[{
+  "_id": {
+    "$oid": "682a52b661142542327d8bcf"
+  },
+  "street": "tesztutca",
+  "city": "Kecskemét",
+  "county": "Bács",
+  "postalCode": "6000",
+  "country": "Magyarország",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682a53d761142542327d8bf3"
+  },
+  "street": "Tesztutca",
+  "city": "Kecskemét",
+  "county": "Bács",
+  "postalCode": "6000",
+  "country": "Hu",
+  "__v": 0
+}]

@@ -1,0 +1,102 @@
+[{
+  "_id": {
+    "$oid": "682a52bc61142542327d8bd7"
+  },
+  "buyer": {
+    "$oid": "682a515961142542327d8bc3"
+  },
+  "products": [
+    {
+      "productId": {
+        "$oid": "682a528761142542327d8bc7"
+      },
+      "quantity": 1,
+      "_id": {
+        "$oid": "682a52bc61142542327d8bd8"
+      }
+    }
+  ],
+  "totalPrice": 1500,
+  "shippingAddress": {
+    "$oid": "682a52b661142542327d8bcf"
+  },
+  "status": "pending",
+  "createdAt": {
+    "$date": "2025-05-18T21:35:56.564Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-18T21:35:56.565Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682a53ea61142542327d8bfb"
+  },
+  "buyer": {
+    "$oid": "682a538561142542327d8be7"
+  },
+  "products": [
+    {
+      "productId": {
+        "$oid": "682a528761142542327d8bc7"
+      },
+      "quantity": 1,
+      "_id": {
+        "$oid": "682a53ea61142542327d8bfc"
+      }
+    }
+  ],
+  "totalPrice": 1500,
+  "shippingAddress": {
+    "$oid": "682a53d761142542327d8bf3"
+  },
+  "status": "pending",
+  "createdAt": {
+    "$date": "2025-05-18T21:40:58.215Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-18T21:40:58.215Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682a545e61142542327d8c0b"
+  },
+  "buyer": {
+    "$oid": "682a515961142542327d8bc3"
+  },
+  "products": [
+    {
+      "productId": {
+        "$oid": "682a528761142542327d8bc7"
+      },
+      "quantity": 1,
+      "_id": {
+        "$oid": "682a545e61142542327d8c0c"
+      }
+    },
+    {
+      "productId": {
+        "$oid": "682a544e61142542327d8c02"
+      },
+      "quantity": 1,
+      "_id": {
+        "$oid": "682a545e61142542327d8c0d"
+      }
+    }
+  ],
+  "totalPrice": 4000,
+  "shippingAddress": {
+    "$oid": "682a52b661142542327d8bcf"
+  },
+  "status": "pending",
+  "createdAt": {
+    "$date": "2025-05-18T21:42:54.194Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-18T21:42:54.194Z"
+  },
+  "__v": 0
+}]

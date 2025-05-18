@@ -1,0 +1,32 @@
+[{
+  "_id": {
+    "$oid": "682a528761142542327d8bc7"
+  },
+  "name": "teszttermék1",
+  "description": "Ez egy teszt\n",
+  "price": 1500,
+  "stock": 11,
+  "createdAt": {
+    "$date": "2025-05-18T21:35:03.130Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-18T21:35:03.131Z"
+  },
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "682a544e61142542327d8c02"
+  },
+  "name": "Teszttermék2",
+  "description": "Ez egy teszt 2",
+  "price": 2500,
+  "stock": 18,
+  "createdAt": {
+    "$date": "2025-05-18T21:42:38.272Z"
+  },
+  "updatedAt": {
+    "$date": "2025-05-18T21:42:38.272Z"
+  },
+  "__v": 0
+}]

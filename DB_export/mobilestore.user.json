@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "682a515961142542327d8bc3"
+  },
+  "username": "admin",
+  "signupDate": {
+    "$date": "2025-05-18T21:30:01.780Z"
+  },
+  "password": "$2b$10$fCQG1CEb/1J5PEzwn0S4lewBRuGqR20Dwg2GJ0UA97WNCrCK4KGy6",
+  "role": "admin",
+  "address": [
+    {
+      "$oid": "682a52b661142542327d8bcf"
+    }
+  ],
+  "cart": [],
+  "__v": 1
+},
+{
+  "_id": {
+    "$oid": "682a538561142542327d8be7"
+  },
+  "username": "TesztUser",
+  "signupDate": {
+    "$date": "2025-05-18T21:39:17.491Z"
+  },
+  "password": "$2b$10$lh9rWD/0tmzEhzsIoapBS.l1LByckPft0DQDITLtRG1v7ZpsoNLh6",
+  "role": "buyer",
+  "address": [
+    {
+      "$oid": "682a53d761142542327d8bf3"
+    }
+  ],
+  "cart": [],
+  "__v": 1
+}]
